@@ -12,10 +12,10 @@ const iniciar = document.querySelector('.iniciar');
 const parar = document.querySelector('.parar');
 const zerar = document.querySelector('.zerar');
 const relogioIntervalo = document.querySelector('.relogioIntervalo');
-const setBreakButton = document.querySelection('.setBreakButton');
-const setWorkButton = document.querySelection('.setWorkButton');
-const setBreakInput = document.querySelection('.setBreakInput');
-const setWorkInput = document.querySelection('.setWorkInput');
+// const setBreakButton = document.querySelection('.setBreakButton');
+// const setWorkButton = document.querySelection('.setWorkButton');
+// const setBreakInput = document.querySelection('.setBreakInput');
+// const setWorkInput = document.querySelection('.setWorkInput');
 
 
 let segundos = 0;
@@ -31,14 +31,18 @@ let breakDuration;
 
 
 
-const sound = new Audio('./audioEu.ogg');
+const audioWork = new Audio('./audioWork.ogg');
+const audioBreak = new Audio('./audioBreak.ogg');
 
 function playAudio(sound){
+
     sound.play();
     setTimeout(() => {
         sound.pause();
-    }, 5000);
+    }, 7000);
+
 }
+
 
 
 function iniciaRelogioIntervalo(){
@@ -46,12 +50,12 @@ function iniciaRelogioIntervalo(){
         segundosIntervalo++;
         relogioIntervalo.innerHTML = criaHoraDosSegundos(segundosIntervalo);
 
-        if (segundosIntervalo === 10){
+        if (segundosIntervalo === 5*60){
             clearInterval(timerIntervalo);
             segundosIntervalo = 0;
             iniciaRelogio();
             segundos = 0;
-            playAudio(sound);
+            playAudio(audioWork);
         }
 
     }, 1000)
@@ -63,10 +67,10 @@ function iniciaRelogio(){
         segundos++;
         relogio.innerHTML = criaHoraDosSegundos(segundos);
 
-        if (segundos === 7){
+        if (segundos === 25*60){
             clearInterval(timer);
             iniciaRelogioIntervalo();
-            playAudio(sound);
+            playAudio(audioBreak);
         }
 
 
@@ -90,15 +94,16 @@ zerar.addEventListener('click', function(event){
     segundos = 0;
 });
 
-setWorkButton.addEventListener('click', function(event){
-    const workMinutes = parseInt(workInput.value);
-    workDuration = workMinutes;
-})
+// setWorkButton.addEventListener('click', function(event){
+//     const workMinutes = parseInt(workInput.value);
+//     workDuration = workMinutes;
+//     alert("Duração do timer definida para ${workDuration} minutos");
+// })
 
-setBreakButton.addEventListener('click', function(event){
-    const breakMinutes = parseInt(breakInput.value);
-    breakDuration = breakMinutes;
-})
+// setBreakButton.addEventListener('click', function(event){
+//     const breakMinutes = parseInt(breakInput.value);
+//     breakDuration = breakMinutes;
+// })
 
 
 
