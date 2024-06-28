@@ -18,9 +18,8 @@ const relogioIntervalo = document.querySelector('.relogioIntervalo');
 // const setWorkInput = document.querySelection('.setWorkInput');
 
 
-let segundos = 0;
-let segundosIntervalo = 0;
-let count = 0;
+let segundos = 1495;
+let segundosIntervalo = 295;
 let timer;
 let timerIntervalo;
 
