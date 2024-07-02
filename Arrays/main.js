@@ -23,36 +23,56 @@
 // console.log(pessoasComMaisDeCinquentaAnos);
 // console.log(pessoasComNomeTerminadoEmA);
 
-// const numeros = [5, 50, 80, 1, 2, 3, 5, 8, 7, 11, 15, 22, 27];
 
 // const numerosEmDobro = numeros.map(valor => valor*2);
 // console.log(numerosEmDobro);
 
+
+// const nomes = pessoas.map(valor => valor.nome);
+// console.log(nomes);
+
+// const idades = pessoas.map(valor => ({idade: valor.idade}));
+// console.log(idades);
+
+// const comIds = pessoas.map(function(valor, indice){
+    //     const newObj = { ...valor };
+    //     newObj.id = indice;
+    //     return newObj;
+    // });
+    // console.log(comIds);
+    
+    
+    const numeros = [5, 50, 80, 1, 2, 3, 5, 8, 7, 11, 15, 22, 27];
+    
+    const total = numeros.reduce(function(acumulador, valor, indice, array){
+        acumulador += valor;
+        return acumulador;
+    }, 0);
+    
+    console.log(total);
+    
 const pessoas = [
-        { nome: 'Luiz', idade: 62},
-        { nome: 'Ian', idade: 30},
-        { nome: 'Bianca', idade: 18},
-        { nome: 'Rafaela', idade: 55},
-        { nome: 'Felipe', idade: 27},
-        { nome: 'Victor', idade: 19},
-        { nome: 'Kaike', idade: 12},
-        { nome: 'Eduardo', idade: 36},
-        { nome: 'Julia', idade: 25},
-        { nome: 'Pedro', idade: 23},
-    ]
+    { nome: 'Luiz', idade: 62},
+    { nome: 'Ian', idade: 30},
+    { nome: 'Bianca', idade: 18},
+    { nome: 'Rafaela', idade: 55},
+    { nome: 'Felipe', idade: 27},
+    { nome: 'Victor', idade: 19},
+    { nome: 'Kaike', idade: 12},
+    { nome: 'Eduardo', idade: 62},
+    { nome: 'Julia', idade: 25},
+    { nome: 'Pedro', idade: 23},
+]
 
-const nomes = pessoas.map(valor => valor.nome);
-console.log(nomes);
+const maisVelha = pessoas.reduce((acumulador, valor) => {
+    if(valor.idade > acumulador.idade){
+        acumulador = valor;
+    }
+    return acumulador;
+})
 
-const idades = pessoas.map(valor => ({idade: valor.idade}));
-console.log(idades);
-
-const comIds = pessoas.map(function(valor, indice){
-    const newObj = { ...valor };
-    newObj.id = indice;
-    return newObj;
-});
-console.log(comIds);
-
-
-
+console.log(maisVelha)
+    
+    
+    
+        
