@@ -37,25 +37,25 @@
 
 
 
-function Produto(nome, preco, estoque){
-    this.nome = nome;
-    this.preco = preco;
+// function Produto(nome, preco, estoque){
+//     this.nome = nome;
+//     this.preco = preco;
 
-    let estoquePrivado = estoque
-    Object.defineProperty(this, 'estoque', {
-        enumerable: true,
-        configurable: true,
-        get: () => {
-            return estoquePrivado;
-        },
-        set: (valor) => {
-            if(typeof(valor) !== "number"){
-                console.log("Bad value");
-                return;
-            }
+//     let estoquePrivado = estoque
+//     Object.defineProperty(this, 'estoque', {
+//         enumerable: true,
+//         configurable: true,
+//         get: () => {
+//             return estoquePrivado;
+//         },
+//         set: (valor) => {
+//             if(typeof(valor) !== "number"){
+//                 console.log("Bad value");
+//                 return;
+//             }
 
-            estoquePrivado = valor;
+//             estoquePrivado = valor;
 
-        }
-    });
-}
+//         }
+//     });
+// }
