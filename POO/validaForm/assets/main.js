@@ -47,7 +47,7 @@ class ValidaFormulario {
       for(let errorText of this.formulario.querySelectorAll('.error-text')) {
         errorText.remove();
       }
-  
+      
       for(let campo of this.formulario.querySelectorAll('.validar')) {
         const label = campo.previousElementSibling.innerText;
   
